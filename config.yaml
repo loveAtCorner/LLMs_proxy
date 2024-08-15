@@ -1,6 +1,23 @@
-base_url: 'http://127.0.0.1:5000'
-data:
-  model: 'Qwen2-7B-Instruct'
-  messages:
-    - role: 'user'
-      content: 'Hello, world!'
+# log模块，必填配置项
+LOG:
+  # 控制台log级别，从低到高包含DEBUG、INFO、WARN、ERROR、CRITICAL。（上线使用INFO，本地使用DEBUG）
+  LOG_LEVEL: DEBUG
+  # log保存路径
+  LOG_FOLDER: ./
+  # log文件名称，默认为service.Log
+  LOG_FILENAME: service.log
+  # 日志文件记录的级别个数（1～5），从低到高计数。（上线使用INFO，本地使用DEBUG）
+  BACKUPCOUNT: 5
+
+# 网络配置
+SERVER:
+  IP: 0.0.0.0
+  PORT: 8001
+
+LLM:
+  MODEL_NAME: "qwen1.5-32b-chat-int4"
+  OPENAI_URL: "http://localhost:8080/v1/chat/completions"
+
+TOKEN:
+  TOKEN_FILE: "token_limits.json"
+  MANAGER_PWD: "ZJ-AI"
